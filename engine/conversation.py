@@ -13,16 +13,17 @@ from .feedback import FeedbackRecorder
 from .capabilities import Capabilities, detect
 
 class ConversationEngine:
-    def __init__(self, root, read_memory, save_fact, feedback_path=None):
+    def __init__(self, root, read_memory, save_fact, feedback_path=None, knowledge_provider=None):
         self.root, self.read_memory, self.save_fact = root, read_memory, save_fact
         self.feedback_path = feedback_path or root / 'data/feedback.jsonl'
+        self.knowledge_provider = knowledge_provider
 
     def reply(self, session, text, preferences, action='chat'):
         text, ui, form = InputProcessor().process(text, preferences, action)
         if action == 'reset':
             session.clear()
             return {'message': 'Vamos começar de novo! Você prefere uma bebida com ou sem álcool? E qual sabor combina com você?', 'preferences': {'alcool':'','sabor':'','ingredientes':'','evitar':''}, 'diagnostics': {'intent':'reset','confidence':1.0}}
-        kb = KnowledgeBase(self.read_memory(), self.root / 'data/regras.json')
+        kb = self.knowledge_provider() if self.knowledge_provider else KnowledgeBase(self.read_memory(), self.root / 'data/regras.json')
         context = ContextManager(session)
         q, corrections = Normalizer(kb.vocabulary).process(text)
         entities = EntityExtractor().extract(q, kb)
