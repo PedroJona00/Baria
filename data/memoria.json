@@ -1,0 +1,2952 @@
+{
+  "versao": 1,
+  "nota": "Catálogo inicial de receitas de referência, não exaustivo. Contribuições de usuários não são verificadas.",
+  "bebidas": [
+    {
+      "id": "b001",
+      "nome": "Caipirinha",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cachaça",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "1 unidade"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Macere suavemente o limão com o açúcar. Acrescente cachaça e gelo e misture.",
+      "curiosidade": "Uma preparação brasileira à base de cachaça.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b002",
+      "nome": "Mojito",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Rum branco",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "25 ml de suco"
+        },
+        {
+          "nome": "Hortelã",
+          "quantidade": "8 folhas"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Pressione levemente hortelã, açúcar e limão. Junte rum e gelo; complete com água com gás.",
+      "curiosidade": "Pressionar a hortelã levemente ajuda a preservar seu aroma.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b003",
+      "nome": "Negroni",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "amargo"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Gin",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Campari",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Vermute tinto",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        },
+        {
+          "nome": "Laranja",
+          "quantidade": "1 fatia"
+        }
+      ],
+      "preparo": "Misture os líquidos com gelo e finalize com laranja.",
+      "curiosidade": "A receita usa partes iguais de três ingredientes principais.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b004",
+      "nome": "Gin tônica",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "amargo",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Gin",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Água tônica",
+          "quantidade": "150 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "1 rodela"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Coloque gelo no copo, adicione gin e tônica e mexa delicadamente.",
+      "curiosidade": "A água tônica possui um perfil amargo característico.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b005",
+      "nome": "Margarita",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Tequila",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Licor de laranja",
+          "quantidade": "25 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "25 ml de suco"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        },
+        {
+          "nome": "Sal",
+          "quantidade": "opcional na borda"
+        }
+      ],
+      "preparo": "Bata os líquidos com gelo e coe para uma taça.",
+      "curiosidade": "A borda de sal é opcional e altera a percepção de sabor.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b006",
+      "nome": "Daiquiri",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Rum branco",
+          "quantidade": "60 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "25 ml de suco"
+        },
+        {
+          "nome": "Xarope de açúcar",
+          "quantidade": "20 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata com gelo e coe para uma taça.",
+      "curiosidade": "É um exemplo de combinação entre destilado, acidez e doçura.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b007",
+      "nome": "Piña colada",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "doce",
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Rum branco",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Suco de abacaxi",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Leite de coco",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "1 xícara"
+        }
+      ],
+      "preparo": "Bata todos os ingredientes no liquidificador e sirva.",
+      "curiosidade": "Abacaxi e coco definem o perfil tropical desta versão.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b008",
+      "nome": "Moscow mule",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vodka",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "20 ml de suco"
+        },
+        {
+          "nome": "Ginger beer sem álcool",
+          "quantidade": "120 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture vodka e limão sobre gelo. Complete com ginger beer.",
+      "curiosidade": "Ginger beer dá o toque de gengibre; confira o rótulo para a versão sem álcool.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b009",
+      "nome": "Old fashioned",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "amargo"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Whisky",
+          "quantidade": "60 ml"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "1 colher de chá"
+        },
+        {
+          "nome": "Bitter aromático",
+          "quantidade": "2 gotas"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "5 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Dissolva o açúcar com água e bitter; adicione whisky e gelo e mexa.",
+      "curiosidade": "É uma receita curta que destaca o destilado.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b010",
+      "nome": "Aperol spritz",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "amargo",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Espumante",
+          "quantidade": "90 ml"
+        },
+        {
+          "nome": "Aperol",
+          "quantidade": "60 ml"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Laranja",
+          "quantidade": "1 fatia"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Monte sobre gelo e mexa delicadamente.",
+      "curiosidade": "Esta versão segue a proporção 3:2:1.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b011",
+      "nome": "Sangria",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "frutado",
+        "doce"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vinho tinto",
+          "quantidade": "150 ml"
+        },
+        {
+          "nome": "Suco de laranja",
+          "quantidade": "75 ml"
+        },
+        {
+          "nome": "Maçã",
+          "quantidade": "1/4 unidade"
+        },
+        {
+          "nome": "Laranja",
+          "quantidade": "2 fatias"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture o vinho, suco e frutas cortadas. Sirva frio com gelo.",
+      "curiosidade": "Existem muitas variações de frutas e proporções.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b012",
+      "nome": "Espresso martini",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "amargo",
+        "doce"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vodka",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Licor de café",
+          "quantidade": "25 ml"
+        },
+        {
+          "nome": "Café espresso",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Xarope de açúcar",
+          "quantidade": "10 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata bem com gelo e coe para uma taça.",
+      "curiosidade": "Apesar do nome, esta receita não leva vermute.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b013",
+      "nome": "Cerveja lager",
+      "alcool": true,
+      "categoria": "Cerveja",
+      "tags": [
+        "amargo",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cerveja lager",
+          "quantidade": "330 ml"
+        }
+      ],
+      "preparo": "Sirva fria em um copo limpo, conforme a indicação do fabricante.",
+      "curiosidade": "Cervejas variam bastante em amargor e teor alcoólico.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b014",
+      "nome": "Vinho tinto",
+      "alcool": true,
+      "categoria": "Vinho",
+      "tags": [
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vinho tinto",
+          "quantidade": "120 ml"
+        }
+      ],
+      "preparo": "Sirva em taça, seguindo a temperatura sugerida no rótulo.",
+      "curiosidade": "Uva, produção e envelhecimento influenciam aromas e taninos.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b015",
+      "nome": "Whisky",
+      "alcool": true,
+      "categoria": "Destilado",
+      "tags": [
+        "amargo"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Whisky",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "opcional"
+        }
+      ],
+      "preparo": "Sirva uma pequena dose; adicione algumas gotas de água se desejar.",
+      "curiosidade": "O envelhecimento em madeira influencia o perfil da bebida.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b016",
+      "nome": "Mojito sem álcool",
+      "alcool": false,
+      "categoria": "Mocktail",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Limão",
+          "quantidade": "25 ml de suco"
+        },
+        {
+          "nome": "Hortelã",
+          "quantidade": "8 folhas"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "150 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Pressione hortelã com açúcar e limão. Adicione gelo e água com gás.",
+      "curiosidade": "Mantém o perfil cítrico e herbal sem usar rum.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b017",
+      "nome": "Colada sem álcool",
+      "alcool": false,
+      "categoria": "Mocktail",
+      "tags": [
+        "doce",
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Suco de abacaxi",
+          "quantidade": "150 ml"
+        },
+        {
+          "nome": "Leite de coco",
+          "quantidade": "60 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "1 xícara"
+        }
+      ],
+      "preparo": "Bata no liquidificador e sirva.",
+      "curiosidade": "O leite de coco dá textura sem precisar de laticínios.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b018",
+      "nome": "Limonada",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Limão",
+          "quantidade": "40 ml de suco"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture até dissolver o açúcar e sirva com gelo.",
+      "curiosidade": "A quantidade de açúcar pode ser ajustada à acidez do limão.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b019",
+      "nome": "Limonada de morango",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "citrico",
+        "frutado",
+        "doce"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Morango",
+          "quantidade": "6 unidades"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "25 ml de suco"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata morango, limão, água e açúcar. Sirva com gelo.",
+      "curiosidade": "Morangos maduros podem reduzir a necessidade de açúcar adicionado.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b020",
+      "nome": "Suco de laranja",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "citrico",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Laranja",
+          "quantidade": "3 unidades"
+        }
+      ],
+      "preparo": "Esprema as laranjas e sirva imediatamente.",
+      "curiosidade": "A doçura varia de acordo com a variedade e a maturação da fruta.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b021",
+      "nome": "Suco de melancia",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Melancia",
+          "quantidade": "300 g"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Retire as sementes e bata a polpa com água.",
+      "curiosidade": "A fruta já contém bastante água; ajuste a diluição ao gosto.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b022",
+      "nome": "Chá gelado de pêssego",
+      "alcool": false,
+      "categoria": "Chá",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Chá preto preparado",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Pêssego",
+          "quantidade": "1 unidade"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Deixe o chá esfriar e bata com o pêssego. Sirva com gelo.",
+      "curiosidade": "Chá preto contém cafeína.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b023",
+      "nome": "Chá de camomila",
+      "alcool": false,
+      "categoria": "Infusão",
+      "tags": [
+        "quente"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Camomila seca",
+          "quantidade": "1 colher de chá"
+        },
+        {
+          "nome": "Água quente",
+          "quantidade": "200 ml"
+        }
+      ],
+      "preparo": "Faça uma infusão por cerca de 5 minutos e coe.",
+      "curiosidade": "É uma infusão de flores, diferente dos chás feitos com folhas de chá.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b024",
+      "nome": "Chá verde",
+      "alcool": false,
+      "categoria": "Chá",
+      "tags": [
+        "amargo",
+        "quente"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Chá verde",
+          "quantidade": "1 colher de chá"
+        },
+        {
+          "nome": "Água quente",
+          "quantidade": "200 ml"
+        }
+      ],
+      "preparo": "Use água abaixo da fervura e infusione por 2 a 3 minutos; coe.",
+      "curiosidade": "Infusões longas tendem a acentuar o amargor. Contém cafeína.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b025",
+      "nome": "Café coado",
+      "alcool": false,
+      "categoria": "Café",
+      "tags": [
+        "amargo",
+        "quente"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Café moído",
+          "quantidade": "12 g"
+        },
+        {
+          "nome": "Água quente",
+          "quantidade": "200 ml"
+        }
+      ],
+      "preparo": "Coloque o café no filtro e despeje a água lentamente.",
+      "curiosidade": "Moagem e proporção de água alteram o resultado. Contém cafeína.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b026",
+      "nome": "Café com leite",
+      "alcool": false,
+      "categoria": "Café",
+      "tags": [
+        "cremoso",
+        "quente"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Café preparado",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "100 ml"
+        }
+      ],
+      "preparo": "Aqueça o leite e misture ao café.",
+      "curiosidade": "Pode ser adaptado com bebida vegetal. O café contém cafeína.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b027",
+      "nome": "Chocolate quente",
+      "alcool": false,
+      "categoria": "Bebida quente",
+      "tags": [
+        "doce",
+        "cremoso",
+        "quente"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Leite",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Cacau em pó",
+          "quantidade": "1 colher de sopa"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        }
+      ],
+      "preparo": "Aqueça os ingredientes mexendo até incorporar.",
+      "curiosidade": "Cacau em pó sem açúcar permite controlar melhor a doçura.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b028",
+      "nome": "Smoothie de banana",
+      "alcool": false,
+      "categoria": "Smoothie",
+      "tags": [
+        "doce",
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Banana",
+          "quantidade": "1 unidade"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Aveia",
+          "quantidade": "1 colher de sopa"
+        }
+      ],
+      "preparo": "Bata tudo no liquidificador e sirva.",
+      "curiosidade": "Banana madura ajuda a adoçar a bebida.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b029",
+      "nome": "Água aromatizada",
+      "alcool": false,
+      "categoria": "Água",
+      "tags": [
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Água",
+          "quantidade": "300 ml"
+        },
+        {
+          "nome": "Pepino",
+          "quantidade": "4 rodelas"
+        },
+        {
+          "nome": "Hortelã",
+          "quantidade": "4 folhas"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "2 rodelas"
+        }
+      ],
+      "preparo": "Lave e corte os ingredientes e coloque na água. Mantenha refrigerado.",
+      "curiosidade": "Os ingredientes acrescentam aromas leves à água.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b030",
+      "nome": "Água de coco",
+      "alcool": false,
+      "categoria": "Bebida natural",
+      "tags": [
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Água de coco",
+          "quantidade": "250 ml"
+        }
+      ],
+      "preparo": "Sirva fresca ou gelada e conserve conforme o rótulo.",
+      "curiosidade": "O sabor pode variar conforme a maturação do coco.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b031",
+      "nome": "Soda de maracujá",
+      "alcool": false,
+      "categoria": "Mocktail",
+      "tags": [
+        "citrico",
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Polpa de maracujá",
+          "quantidade": "3 colheres de sopa"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture polpa e açúcar, junte gelo e complete com água com gás.",
+      "curiosidade": "Adicione a água com gás por último para preservar a efervescência.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b032",
+      "nome": "Milkshake de baunilha",
+      "alcool": false,
+      "categoria": "Milkshake",
+      "tags": [
+        "doce",
+        "cremoso"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Sorvete de baunilha",
+          "quantidade": "3 bolas"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "100 ml"
+        }
+      ],
+      "preparo": "Bata rapidamente até ficar cremoso.",
+      "curiosidade": "A proporção entre leite e sorvete determina a espessura.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b033",
+      "nome": "Caipiroska",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vodka",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "1 unidade"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Corte o limão, macere suavemente com o açúcar, adicione vodka e gelo e misture.",
+      "curiosidade": "Nesta versão, a vodka substitui a cachaça na combinação de limão e açúcar.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b034",
+      "nome": "Caipirinha de maracujá",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cachaça",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Polpa de maracujá",
+          "quantidade": "3 colheres de sopa"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture a polpa com o açúcar. Acrescente cachaça e gelo e mexa.",
+      "curiosidade": "A polpa pode ser coada para uma bebida sem sementes.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b035",
+      "nome": "Caipirinha de morango",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "frutado",
+        "doce"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cachaça",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Morango",
+          "quantidade": "5 unidades"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "15 ml de suco"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "1 colher de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Macere os morangos com açúcar, junte limão, cachaça e gelo e misture.",
+      "curiosidade": "A maturação dos morangos influencia a quantidade de açúcar necessária.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b036",
+      "nome": "Cuba libre",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "doce",
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Rum branco",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Refrigerante de cola",
+          "quantidade": "120 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "15 ml de suco"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Coloque gelo no copo, junte rum e limão e complete com refrigerante de cola.",
+      "curiosidade": "Adicione o refrigerante por último e misture delicadamente para preservar o gás.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b037",
+      "nome": "Tom Collins",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Gin",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Limão-siciliano",
+          "quantidade": "25 ml de suco"
+        },
+        {
+          "nome": "Xarope de açúcar",
+          "quantidade": "15 ml"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture gin, suco e xarope sobre gelo. Complete com água com gás.",
+      "curiosidade": "Nesta versão, a água com gás dilui o conjunto e acrescenta efervescência.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b038",
+      "nome": "Whisky sour sem clara",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Whisky",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Limão-siciliano",
+          "quantidade": "25 ml de suco"
+        },
+        {
+          "nome": "Xarope de açúcar",
+          "quantidade": "20 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata whisky, suco e xarope com gelo e coe para um copo.",
+      "curiosidade": "Esta versão não usa clara de ovo e, por isso, não busca a espuma de versões com clara.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b039",
+      "nome": "Paloma",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Tequila",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Suco de grapefruit",
+          "quantidade": "80 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "15 ml de suco"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "60 ml"
+        },
+        {
+          "nome": "Xarope de açúcar",
+          "quantidade": "10 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture tequila, sucos e xarope sobre gelo e complete com água com gás.",
+      "curiosidade": "O grapefruit acrescenta uma combinação de acidez e amargor à receita.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b040",
+      "nome": "Tequila sunrise",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "doce",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Tequila",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Suco de laranja",
+          "quantidade": "120 ml"
+        },
+        {
+          "nome": "Xarope de grenadine",
+          "quantidade": "15 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Coloque gelo, tequila e suco no copo. Despeje a grenadine lentamente e não misture para manter o efeito visual.",
+      "curiosidade": "A grenadine cria um gradiente de cor quando adicionada lentamente.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b041",
+      "nome": "Bellini",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "frutado",
+        "doce"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Espumante",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Purê de pêssego",
+          "quantidade": "50 ml"
+        }
+      ],
+      "preparo": "Coloque o purê frio em uma taça e acrescente o espumante gelado aos poucos. Misture suavemente.",
+      "curiosidade": "O purê dá mais textura do que um suco de pêssego coado.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b042",
+      "nome": "Mimosa",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Espumante",
+          "quantidade": "75 ml"
+        },
+        {
+          "nome": "Suco de laranja",
+          "quantidade": "75 ml"
+        }
+      ],
+      "preparo": "Coloque os ingredientes gelados em uma taça e misture delicadamente.",
+      "curiosidade": "Esta versão utiliza volumes iguais de espumante e suco.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b043",
+      "nome": "Dry martini",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "amargo"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Gin",
+          "quantidade": "60 ml"
+        },
+        {
+          "nome": "Vermute seco",
+          "quantidade": "10 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        },
+        {
+          "nome": "Azeitona",
+          "quantidade": "1 unidade"
+        }
+      ],
+      "preparo": "Mexa gin e vermute com gelo, coe para uma taça e finalize com a azeitona.",
+      "curiosidade": "A proporção de gin e vermute pode variar; esta é uma versão de referência.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b044",
+      "nome": "Manhattan",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "amargo"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Whisky",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Vermute tinto",
+          "quantidade": "25 ml"
+        },
+        {
+          "nome": "Bitter aromático",
+          "quantidade": "2 gotas"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Mexa os ingredientes com gelo e coe para uma taça.",
+      "curiosidade": "O vermute participa do sabor da mistura e também acrescenta álcool.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b045",
+      "nome": "Boulevardier",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "amargo"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Whisky",
+          "quantidade": "40 ml"
+        },
+        {
+          "nome": "Campari",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Vermute tinto",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        },
+        {
+          "nome": "Laranja",
+          "quantidade": "1 tira de casca"
+        }
+      ],
+      "preparo": "Mexa os líquidos com gelo e sirva com a casca de laranja.",
+      "curiosidade": "Compartilha Campari e vermute tinto com o Negroni, mas usa whisky nesta versão.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b046",
+      "nome": "Batida de coco",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "doce",
+        "cremoso"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cachaça",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Leite de coco",
+          "quantidade": "80 ml"
+        },
+        {
+          "nome": "Leite condensado",
+          "quantidade": "40 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "1/2 xícara"
+        }
+      ],
+      "preparo": "Bata tudo no liquidificador até ficar uniforme e sirva.",
+      "curiosidade": "Embora leve leite de coco, esta receita também contém laticínio no leite condensado.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b047",
+      "nome": "Batida de maracujá",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "doce",
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cachaça",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Polpa de maracujá",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Leite condensado",
+          "quantidade": "40 ml"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "1/2 xícara"
+        }
+      ],
+      "preparo": "Bata os ingredientes no liquidificador e sirva. Coe a polpa antes se preferir retirar as sementes.",
+      "curiosidade": "O leite condensado acrescenta doçura e textura cremosa.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b048",
+      "nome": "Vinho branco seco",
+      "alcool": true,
+      "categoria": "Vinho",
+      "tags": [
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vinho branco seco",
+          "quantidade": "120 ml"
+        }
+      ],
+      "preparo": "Sirva em taça seguindo a temperatura indicada no rótulo.",
+      "curiosidade": "Seco não significa sem álcool; consulte o rótulo para as características do produto.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b049",
+      "nome": "Vinho rosé",
+      "alcool": true,
+      "categoria": "Vinho",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vinho rosé",
+          "quantidade": "120 ml"
+        }
+      ],
+      "preparo": "Sirva resfriado, conforme a orientação do fabricante.",
+      "curiosidade": "A cor rosada não determina, sozinha, se o vinho é doce ou seco.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b050",
+      "nome": "Cerveja IPA",
+      "alcool": true,
+      "categoria": "Cerveja",
+      "tags": [
+        "amargo"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cerveja IPA",
+          "quantidade": "330 ml"
+        }
+      ],
+      "preparo": "Sirva em copo limpo na temperatura recomendada pelo fabricante.",
+      "curiosidade": "O perfil varia entre rótulos; esta entrada representa uma opção de perfil amargo.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b051",
+      "nome": "Cerveja de trigo",
+      "alcool": true,
+      "categoria": "Cerveja",
+      "tags": [
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cerveja de trigo",
+          "quantidade": "330 ml"
+        }
+      ],
+      "preparo": "Sirva em copo limpo, seguindo as recomendações do rótulo.",
+      "curiosidade": "Trigo e cevada podem estar presentes na composição; confira os ingredientes do produto.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b052",
+      "nome": "Licor de café",
+      "alcool": true,
+      "categoria": "Licor",
+      "tags": [
+        "doce"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Licor de café",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "opcional"
+        }
+      ],
+      "preparo": "Sirva uma pequena dose pura ou sobre gelo, conforme sua preferência.",
+      "curiosidade": "Licor de café contém álcool; sua composição depende da marca.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b053",
+      "nome": "Limonada de gengibre",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Limão",
+          "quantidade": "30 ml de suco"
+        },
+        {
+          "nome": "Gengibre fresco",
+          "quantidade": "2 fatias finas"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata água, limão, gengibre e açúcar. Coe se desejar e sirva com gelo.",
+      "curiosidade": "O gengibre pode ser acrescentado aos poucos para ajustar a intensidade.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b054",
+      "nome": "Limonada com manjericão",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Limão",
+          "quantidade": "30 ml de suco"
+        },
+        {
+          "nome": "Manjericão",
+          "quantidade": "4 folhas"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture água, limão e açúcar. Pressione levemente as folhas e acrescente com o gelo.",
+      "curiosidade": "As folhas acrescentam aroma; não é necessário triturá-las completamente.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b055",
+      "nome": "Suco de abacaxi com hortelã",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Abacaxi",
+          "quantidade": "150 g"
+        },
+        {
+          "nome": "Hortelã",
+          "quantidade": "5 folhas"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "150 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata abacaxi, hortelã e água. Sirva com gelo e coe apenas se desejar.",
+      "curiosidade": "Usar a fruta madura permite experimentar a receita sem adicionar açúcar.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b056",
+      "nome": "Suco de manga",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "frutado",
+        "doce"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Manga",
+          "quantidade": "150 g de polpa"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "150 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata a manga com água e ajuste a diluição antes de servir.",
+      "curiosidade": "A quantidade de água muda a espessura do suco.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b057",
+      "nome": "Suco de goiaba",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Goiaba",
+          "quantidade": "1 unidade"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Lave e corte a goiaba, bata com água e coe para retirar as sementes.",
+      "curiosidade": "Coar retira as sementes e altera a textura final.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b058",
+      "nome": "Suco de acerola",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "citrico",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Polpa de acerola",
+          "quantidade": "100 g"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "1 colher de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata a polpa com água e açúcar e sirva gelado.",
+      "curiosidade": "A acidez varia entre polpas; ajuste a diluição ao seu gosto.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b059",
+      "nome": "Suco de caju",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Polpa de caju",
+          "quantidade": "100 g"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata a polpa com a água e sirva gelado.",
+      "curiosidade": "Esta receita usa polpa de caju, não a castanha.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b060",
+      "nome": "Suco de uva integral",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "doce",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Suco de uva integral sem álcool",
+          "quantidade": "200 ml"
+        }
+      ],
+      "preparo": "Sirva gelado e conserve conforme as instruções da embalagem.",
+      "curiosidade": "Suco de uva e vinho são produtos diferentes; esta entrada é exclusivamente para suco sem álcool.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b061",
+      "nome": "Soda de frutas vermelhas",
+      "alcool": false,
+      "categoria": "Mocktail",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Morango",
+          "quantidade": "3 unidades"
+        },
+        {
+          "nome": "Amora",
+          "quantidade": "4 unidades"
+        },
+        {
+          "nome": "Xarope de açúcar",
+          "quantidade": "15 ml"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "150 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Macere as frutas com o xarope. Junte gelo e complete com água com gás.",
+      "curiosidade": "As frutas maceradas dão cor e deixam pequenos pedaços na bebida.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b062",
+      "nome": "Soda de maçã com canela",
+      "alcool": false,
+      "categoria": "Mocktail",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Suco de maçã",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Canela em pau",
+          "quantidade": "1 unidade"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture os líquidos gelados, acrescente gelo e coloque a canela em pau para aromatizar.",
+      "curiosidade": "A canela em pau aromatiza sem deixar o pó disperso no copo.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b063",
+      "nome": "Spritz de laranja sem álcool",
+      "alcool": false,
+      "categoria": "Mocktail",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Suco de laranja",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "10 ml de suco"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture os sucos sobre gelo e complete com água com gás.",
+      "curiosidade": "Esta versão não utiliza espumante, licor ou bitter alcoólico.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b064",
+      "nome": "Chá de hortelã",
+      "alcool": false,
+      "categoria": "Infusão",
+      "tags": [
+        "quente"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Hortelã",
+          "quantidade": "8 folhas"
+        },
+        {
+          "nome": "Água quente",
+          "quantidade": "200 ml"
+        }
+      ],
+      "preparo": "Lave as folhas, cubra com água quente, deixe em infusão por cerca de 5 minutos e coe.",
+      "curiosidade": "Nesta receita, o aroma vem das folhas de hortelã.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b065",
+      "nome": "Chá de gengibre",
+      "alcool": false,
+      "categoria": "Infusão",
+      "tags": [
+        "quente"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Gengibre fresco",
+          "quantidade": "4 fatias finas"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "250 ml"
+        }
+      ],
+      "preparo": "Aqueça água e gengibre até ferver, mantenha em fogo baixo por 5 minutos e coe com cuidado.",
+      "curiosidade": "Fatias mais finas aumentam a superfície de contato do gengibre com a água.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b066",
+      "nome": "Chá de hibisco gelado",
+      "alcool": false,
+      "categoria": "Infusão",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Hibisco seco",
+          "quantidade": "1 colher de chá"
+        },
+        {
+          "nome": "Água quente",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Infusione o hibisco por cerca de 5 minutos, coe, deixe esfriar e sirva com gelo.",
+      "curiosidade": "A infusão tem cor intensa; a receita não leva folhas de chá preto ou verde.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b067",
+      "nome": "Chá mate gelado com limão",
+      "alcool": false,
+      "categoria": "Chá",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Mate tostado",
+          "quantidade": "1 colher de chá"
+        },
+        {
+          "nome": "Água quente",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "15 ml de suco"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Prepare uma infusão com o mate, coe e deixe esfriar. Acrescente limão e gelo.",
+      "curiosidade": "A erva-mate contém cafeína.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b068",
+      "nome": "Cappuccino caseiro",
+      "alcool": false,
+      "categoria": "Café",
+      "tags": [
+        "cremoso",
+        "quente"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Café espresso",
+          "quantidade": "40 ml"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "120 ml"
+        },
+        {
+          "nome": "Canela em pó",
+          "quantidade": "opcional"
+        }
+      ],
+      "preparo": "Aqueça o leite sem deixar transbordar, bata para formar espuma e coloque sobre o café. Finalize com canela se desejar.",
+      "curiosidade": "Esta versão caseira depende do leite aerado para formar a espuma. O café contém cafeína.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b069",
+      "nome": "Café gelado com leite",
+      "alcool": false,
+      "categoria": "Café",
+      "tags": [
+        "cremoso",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Café preparado e frio",
+          "quantidade": "80 ml"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "120 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Coloque gelo no copo e junte o café frio e o leite.",
+      "curiosidade": "Usar o café já frio reduz o derretimento imediato do gelo. Contém cafeína.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b070",
+      "nome": "Smoothie de morango com banana",
+      "alcool": false,
+      "categoria": "Smoothie",
+      "tags": [
+        "doce",
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Morango",
+          "quantidade": "6 unidades"
+        },
+        {
+          "nome": "Banana",
+          "quantidade": "1 unidade"
+        },
+        {
+          "nome": "Iogurte natural",
+          "quantidade": "150 g"
+        }
+      ],
+      "preparo": "Bata todos os ingredientes no liquidificador e sirva imediatamente.",
+      "curiosidade": "A banana madura acrescenta doçura e ajuda na textura.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b071",
+      "nome": "Vitamina de abacate",
+      "alcool": false,
+      "categoria": "Vitamina",
+      "tags": [
+        "cremoso"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Abacate",
+          "quantidade": "100 g de polpa"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "1 colher de chá"
+        }
+      ],
+      "preparo": "Bata a polpa com leite e açúcar até ficar uniforme e sirva.",
+      "curiosidade": "A quantidade de leite pode ser aumentada para uma consistência mais fluida.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b072",
+      "nome": "Milkshake de chocolate",
+      "alcool": false,
+      "categoria": "Milkshake",
+      "tags": [
+        "doce",
+        "cremoso"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Sorvete de chocolate",
+          "quantidade": "3 bolas"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Cacau em pó",
+          "quantidade": "1 colher de chá"
+        }
+      ],
+      "preparo": "Bata rapidamente os ingredientes e sirva em copo alto.",
+      "curiosidade": "O cacau reforça o sabor de chocolate sem precisar de calda nesta versão.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b073",
+      "nome": "Vodka com cranberry",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vodka",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Suco de cranberry",
+          "quantidade": "120 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "10 ml de suco"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Coloque gelo no copo, junte vodka e os sucos e misture.",
+      "curiosidade": "A doçura varia conforme o suco de cranberry escolhido.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b074",
+      "nome": "Rum com abacaxi",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "frutado",
+        "doce"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Rum branco",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Suco de abacaxi",
+          "quantidade": "120 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "10 ml de suco"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture o rum com os sucos sobre gelo e sirva.",
+      "curiosidade": "O limão permite ajustar a acidez da mistura sem aumentar o volume de rum.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b075",
+      "nome": "Gin com pepino e hortelã",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Gin",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Pepino",
+          "quantidade": "4 rodelas"
+        },
+        {
+          "nome": "Hortelã",
+          "quantidade": "5 folhas"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "120 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "15 ml de suco"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Pressione levemente a hortelã, junte pepino, gin, limão e gelo. Complete com água com gás.",
+      "curiosidade": "Esta versão usa água com gás em vez de água tônica.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b076",
+      "nome": "Cachaça com mel e limão",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico",
+        "doce"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cachaça",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "25 ml de suco"
+        },
+        {
+          "nome": "Mel",
+          "quantidade": "15 ml"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "15 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Dissolva o mel na água, junte cachaça e limão, bata com gelo e coe.",
+      "curiosidade": "Diluir o mel antes ajuda a incorporá-lo aos ingredientes frios.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b077",
+      "nome": "Batida de amendoim",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "doce",
+        "cremoso"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cachaça",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Amendoim torrado sem sal",
+          "quantidade": "2 colheres de sopa"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Leite condensado",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "1/2 xícara"
+        }
+      ],
+      "preparo": "Bata todos os ingredientes no liquidificador até obter uma mistura uniforme.",
+      "curiosidade": "Esta receita contém amendoim e laticínios.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b078",
+      "nome": "Batida de abacaxi",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "doce",
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cachaça",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Abacaxi",
+          "quantidade": "100 g"
+        },
+        {
+          "nome": "Leite condensado",
+          "quantidade": "40 ml"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "1/2 xícara"
+        }
+      ],
+      "preparo": "Bata todos os ingredientes no liquidificador e sirva em seguida.",
+      "curiosidade": "Bater a fruta inteira deixa a textura diferente da versão preparada somente com suco.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b079",
+      "nome": "Batida de morango",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "doce",
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vodka",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Morango",
+          "quantidade": "6 unidades"
+        },
+        {
+          "nome": "Leite condensado",
+          "quantidade": "40 ml"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "1/2 xícara"
+        }
+      ],
+      "preparo": "Lave os morangos, retire os cabinhos e bata com os demais ingredientes.",
+      "curiosidade": "Esta versão combina fruta fresca com leite e leite condensado.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b080",
+      "nome": "Caipirinha de kiwi",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "citrico",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cachaça",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Kiwi",
+          "quantidade": "1 unidade"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "15 ml de suco"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Descasque e corte o kiwi, macere com açúcar e junte limão, cachaça e gelo.",
+      "curiosidade": "As pequenas sementes do kiwi ficam na bebida quando a polpa não é coada.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b081",
+      "nome": "Caipiroska de frutas vermelhas",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "frutado",
+        "citrico"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vodka",
+          "quantidade": "50 ml"
+        },
+        {
+          "nome": "Morango",
+          "quantidade": "3 unidades"
+        },
+        {
+          "nome": "Amora",
+          "quantidade": "4 unidades"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "15 ml de suco"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Macere as frutas com o açúcar e misture com vodka, limão e gelo.",
+      "curiosidade": "A proporção entre as frutas pode ser ajustada para mudar a cor e o sabor.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b082",
+      "nome": "Sangria branca",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vinho branco seco",
+          "quantidade": "120 ml"
+        },
+        {
+          "nome": "Suco de maçã",
+          "quantidade": "60 ml"
+        },
+        {
+          "nome": "Pêssego",
+          "quantidade": "1/2 unidade"
+        },
+        {
+          "nome": "Maçã",
+          "quantidade": "1/4 unidade"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Corte as frutas, misture ao vinho e ao suco. Acrescente gelo e água com gás ao servir.",
+      "curiosidade": "Esta versão usa vinho branco e frutas cortadas, sem adicionar licor.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b083",
+      "nome": "Spritz de limoncello",
+      "alcool": true,
+      "categoria": "Coquetel",
+      "tags": [
+        "doce",
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Limoncello",
+          "quantidade": "40 ml"
+        },
+        {
+          "nome": "Espumante",
+          "quantidade": "90 ml"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "30 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Coloque gelo no copo, adicione limoncello, espumante e água com gás e mexa suavemente.",
+      "curiosidade": "Limoncello é um licor; esta mistura contém álcool mesmo com a adição de água com gás.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b084",
+      "nome": "Vermute tinto com soda",
+      "alcool": true,
+      "categoria": "Aperitivo",
+      "tags": [
+        "amargo",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vermute tinto",
+          "quantidade": "60 ml"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "90 ml"
+        },
+        {
+          "nome": "Laranja",
+          "quantidade": "1 fatia"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Sirva o vermute sobre gelo, complete com água com gás e acrescente a laranja.",
+      "curiosidade": "O vermute já contém álcool; a soda apenas dilui a bebida.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b085",
+      "nome": "Vinho do Porto tinto",
+      "alcool": true,
+      "categoria": "Vinho",
+      "tags": [
+        "doce"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Vinho do Porto tinto",
+          "quantidade": "60 ml"
+        }
+      ],
+      "preparo": "Sirva uma pequena porção em taça, seguindo as orientações do produtor.",
+      "curiosidade": "Esta entrada representa um vinho do Porto tinto de perfil doce; consulte o rótulo para detalhes do produto.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b086",
+      "nome": "Cerveja stout",
+      "alcool": true,
+      "categoria": "Cerveja",
+      "tags": [
+        "amargo"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Cerveja stout",
+          "quantidade": "330 ml"
+        }
+      ],
+      "preparo": "Sirva em copo limpo, na temperatura sugerida no rótulo.",
+      "curiosidade": "Esta entrada representa uma versão alcoólica; a composição varia conforme o fabricante.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b087",
+      "nome": "Sidra de maçã",
+      "alcool": true,
+      "categoria": "Sidra",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Sidra alcoólica de maçã",
+          "quantidade": "150 ml"
+        }
+      ],
+      "preparo": "Sirva resfriada em taça ou copo, conforme a recomendação da embalagem.",
+      "curiosidade": "Confira o rótulo: produtos chamados sidra podem ter diferentes teores de álcool e de açúcar.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b088",
+      "nome": "Suco de maracujá",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "citrico",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Polpa de maracujá",
+          "quantidade": "60 ml"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata rapidamente a polpa com água e açúcar, coe se desejar e sirva com gelo.",
+      "curiosidade": "Bater por pouco tempo facilita manter as sementes mais inteiras para coar.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b089",
+      "nome": "Suco de tangerina",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "citrico",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Tangerina",
+          "quantidade": "4 unidades"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "opcional"
+        }
+      ],
+      "preparo": "Esprema as tangerinas, retire as sementes e sirva.",
+      "curiosidade": "A quantidade de suco obtida depende do tamanho e da variedade da fruta.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b090",
+      "nome": "Suco de melão",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Melão",
+          "quantidade": "200 g de polpa"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Retire casca e sementes e bata a polpa com a água. Sirva gelado.",
+      "curiosidade": "A água pode ser reduzida para manter a bebida mais encorpada.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b091",
+      "nome": "Suco de pera com limão",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "frutado",
+        "citrico"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Pera",
+          "quantidade": "1 unidade"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "10 ml de suco"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "150 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Lave a pera, retire o miolo e bata com água e limão. Sirva com gelo.",
+      "curiosidade": "A casca pode ser mantida após a lavagem, deixando mais textura na bebida.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b092",
+      "nome": "Limonada de pepino",
+      "alcool": false,
+      "categoria": "Suco",
+      "tags": [
+        "citrico",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Pepino",
+          "quantidade": "1/4 unidade"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "30 ml de suco"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Bata pepino, água, limão e açúcar. Coe se desejar e sirva com gelo.",
+      "curiosidade": "O pepino pode ser usado com casca bem lavada para uma cor mais intensa.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b093",
+      "nome": "Soda de romã",
+      "alcool": false,
+      "categoria": "Mocktail",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Suco de romã sem álcool",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Limão",
+          "quantidade": "10 ml de suco"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Misture os sucos sobre gelo e complete com água com gás.",
+      "curiosidade": "Esta receita usa suco de romã, não licor ou bebida fermentada.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b094",
+      "nome": "Soda de abacaxi com gengibre",
+      "alcool": false,
+      "categoria": "Mocktail",
+      "tags": [
+        "frutado",
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Suco de abacaxi",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Gengibre fresco",
+          "quantidade": "2 fatias finas"
+        },
+        {
+          "nome": "Água com gás",
+          "quantidade": "100 ml"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "a gosto"
+        }
+      ],
+      "preparo": "Pressione levemente as fatias de gengibre no copo, junte suco e gelo e complete com água com gás.",
+      "curiosidade": "A intensidade do gengibre depende da quantidade e do tempo em contato com o líquido.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b095",
+      "nome": "Água aromatizada de laranja e alecrim",
+      "alcool": false,
+      "categoria": "Água",
+      "tags": [
+        "refrescante"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Água",
+          "quantidade": "300 ml"
+        },
+        {
+          "nome": "Laranja",
+          "quantidade": "3 rodelas"
+        },
+        {
+          "nome": "Alecrim fresco",
+          "quantidade": "1 ramo pequeno"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "opcional"
+        }
+      ],
+      "preparo": "Lave a laranja e o alecrim, coloque na água e mantenha refrigerado até servir.",
+      "curiosidade": "Use um ramo pequeno para que o aroma do alecrim não domine a mistura.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b096",
+      "nome": "Infusão de maçã com canela",
+      "alcool": false,
+      "categoria": "Infusão",
+      "tags": [
+        "quente",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Maçã",
+          "quantidade": "1/2 unidade"
+        },
+        {
+          "nome": "Canela em pau",
+          "quantidade": "1 unidade"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "250 ml"
+        }
+      ],
+      "preparo": "Lave e corte a maçã. Aqueça com água e canela, mantenha em fogo baixo por 5 minutos e sirva com cuidado.",
+      "curiosidade": "A receita usa fruta e especiaria, sem folhas de chá preto ou verde.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b097",
+      "nome": "Chá de erva-doce",
+      "alcool": false,
+      "categoria": "Infusão",
+      "tags": [
+        "quente"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Sementes de erva-doce",
+          "quantidade": "1 colher de chá"
+        },
+        {
+          "nome": "Água quente",
+          "quantidade": "200 ml"
+        }
+      ],
+      "preparo": "Cubra as sementes com água quente, deixe em infusão por cerca de 5 minutos e coe.",
+      "curiosidade": "Coar retira as sementes antes de servir a infusão.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b098",
+      "nome": "Chocolate quente com bebida de aveia",
+      "alcool": false,
+      "categoria": "Bebida quente",
+      "tags": [
+        "doce",
+        "cremoso",
+        "quente"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Bebida de aveia",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Cacau em pó",
+          "quantidade": "1 colher de sopa"
+        },
+        {
+          "nome": "Açúcar",
+          "quantidade": "2 colheres de chá"
+        }
+      ],
+      "preparo": "Misture os ingredientes e aqueça em fogo baixo, mexendo até incorporar.",
+      "curiosidade": "A textura varia conforme a bebida de aveia escolhida; confira sua composição no rótulo.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b099",
+      "nome": "Vitamina de mamão",
+      "alcool": false,
+      "categoria": "Vitamina",
+      "tags": [
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Mamão",
+          "quantidade": "150 g de polpa"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "200 ml"
+        },
+        {
+          "nome": "Aveia",
+          "quantidade": "1 colher de sopa"
+        }
+      ],
+      "preparo": "Retire as sementes do mamão e bata a polpa com leite e aveia.",
+      "curiosidade": "A aveia deixa a mistura mais espessa; ajuste a quantidade de leite ao servir.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b100",
+      "nome": "Smoothie de manga com iogurte",
+      "alcool": false,
+      "categoria": "Smoothie",
+      "tags": [
+        "doce",
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Manga",
+          "quantidade": "150 g de polpa"
+        },
+        {
+          "nome": "Iogurte natural",
+          "quantidade": "150 g"
+        },
+        {
+          "nome": "Água",
+          "quantidade": "50 ml"
+        }
+      ],
+      "preparo": "Bata tudo no liquidificador e sirva frio.",
+      "curiosidade": "A manga madura contribui com doçura sem precisar de açúcar adicional nesta receita.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b101",
+      "nome": "Milkshake de morango",
+      "alcool": false,
+      "categoria": "Milkshake",
+      "tags": [
+        "doce",
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Sorvete de baunilha",
+          "quantidade": "3 bolas"
+        },
+        {
+          "nome": "Morango",
+          "quantidade": "5 unidades"
+        },
+        {
+          "nome": "Leite",
+          "quantidade": "80 ml"
+        }
+      ],
+      "preparo": "Lave os morangos, retire os cabinhos e bata rapidamente com sorvete e leite.",
+      "curiosidade": "A fruta fresca muda a textura em relação a uma versão feita apenas com calda.",
+      "contribuicoes": []
+    },
+    {
+      "id": "b102",
+      "nome": "Smoothie de abacaxi com coco",
+      "alcool": false,
+      "categoria": "Smoothie",
+      "tags": [
+        "cremoso",
+        "frutado"
+      ],
+      "ingredientes": [
+        {
+          "nome": "Abacaxi",
+          "quantidade": "150 g"
+        },
+        {
+          "nome": "Leite de coco",
+          "quantidade": "80 ml"
+        },
+        {
+          "nome": "Banana",
+          "quantidade": "1/2 unidade"
+        },
+        {
+          "nome": "Gelo",
+          "quantidade": "1/2 xícara"
+        }
+      ],
+      "preparo": "Bata os ingredientes no liquidificador e sirva imediatamente.",
+      "curiosidade": "Nesta versão, a banana contribui com textura sem usar sorvete ou leite condensado.",
+      "contribuicoes": []
+    }
+  ]
+}

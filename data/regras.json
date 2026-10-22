@@ -1,0 +1,122 @@
+{
+  "versao": 1,
+  "nota": "Confiança heurística, não probabilidade. Alterações exigem revisão e testes.",
+  "intencoes": [
+    {
+      "name": "finish",
+      "priority": 100,
+      "confidence": 0.98,
+      "patterns": [
+        "\\b(tchau|encerrar|encerre|ate logo|finalizar|terminei)\\b"
+      ]
+    },
+    {
+      "name": "rule_suggestion",
+      "priority": 95,
+      "confidence": 0.95,
+      "patterns": [
+        "\\b(sugiro uma regra|nova regra|sugestao de regra)\\b"
+      ]
+    },
+    {
+      "name": "feedback",
+      "priority": 90,
+      "confidence": 0.93,
+      "patterns": [
+        "\\b(nao foi isso|entendeu errado|resposta errada|resposta ruim|nao ajudou|ajudou muito|boa resposta|gostei da resposta)\\b"
+      ]
+    },
+    {
+      "name": "compare",
+      "priority": 80,
+      "confidence": 0.94,
+      "patterns": [
+        "\\b(compare|comparar|diferenca entre|qual a diferenca)\\b"
+      ]
+    },
+    {
+      "name": "explain",
+      "priority": 75,
+      "confidence": 0.94,
+      "patterns": [
+        "\\b(por que|porque)\\b.*\\b(escolheu|recomendou|sugeriu|essa|esse|isso)\\b",
+        "^por que\\??$"
+      ]
+    },
+    {
+      "name": "ingredients",
+      "priority": 70,
+      "confidence": 0.95,
+      "patterns": [
+        "\\b(ingredientes|o que leva|leva o que|composicao)\\b"
+      ]
+    },
+    {
+      "name": "recipe",
+      "priority": 70,
+      "confidence": 0.95,
+      "patterns": [
+        "\\b(receita|como (?:fazer|preparar|faz)|modo de preparo|passo a passo)\\b",
+        "\\bcomo\\s+(?:(?:eu|voce|se)\\s+)?(?:faco|preparo|faz|prepara|fazer|preparar|(?:posso|podemos|pode)\\s+(?:fazer|preparar))\\b",
+        "\\b(?:me\\s+)?(?:ensina|ensine|ensinar|explique|explica)\\s+(?:(?:a|como)\\s+)?(?:fazer|preparar)\\b",
+        "\\b(?:quero|gostaria de)\\s+aprender\\s+(?:a\\s+)?(?:fazer|preparar)\\b"
+      ]
+    },
+    {
+      "name": "fact",
+      "priority": 70,
+      "confidence": 0.94,
+      "patterns": [
+        "\\b(curiosidade|historia|origem)\\b"
+      ]
+    },
+    {
+      "name": "alcohol_check",
+      "priority": 70,
+      "confidence": 0.96,
+      "patterns": [
+        "\\b(tem alcool|leva alcool|contem alcool|e alcoolico)\\b"
+      ]
+    },
+    {
+      "name": "context",
+      "priority": 65,
+      "confidence": 0.94,
+      "patterns": [
+        "\\b(o que (?:eu )?(?:pedi|disse)|minhas preferencias|o que voce lembra)\\b"
+      ]
+    },
+    {
+      "name": "alternative",
+      "priority": 60,
+      "confidence": 0.92,
+      "patterns": [
+        "\\b(outra opcao|outra bebida|outro drink|alternativa|algo diferente|nao gostei desse|nao gostei dessa)\\b"
+      ]
+    },
+    {
+      "name": "recommend",
+      "priority": 35,
+      "confidence": 0.88,
+      "patterns": [
+        "\\b(recomende|recomenda|indique|sugira|sugestao|quero (?:um|uma|algo)|bebida para|drink para)\\b"
+      ]
+    },
+    {
+      "name": "thanks",
+      "priority": 5,
+      "confidence": 0.97,
+      "patterns": [
+        "^(?:muito )?(?:obrigad[oa]|valeu)[!. ]*$"
+      ]
+    },
+    {
+      "name": "greet",
+      "priority": 5,
+      "confidence": 0.97,
+      "patterns": [
+        "^(?:oi|ola|bom dia|boa tarde|boa noite|e ai)[!. ]*$"
+      ]
+    }
+  ]
+}
