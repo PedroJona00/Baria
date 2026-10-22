@@ -39,6 +39,14 @@ def generate():
     return '\n'.join(output)
 
 if __name__ == '__main__':
-    target = Path(__file__).with_name('EXEMPLOS.md')
-    target.write_text(generate(), encoding='utf-8')
-    print('Exemplos gravados em EXEMPLOS.md')
+    target = Path(__file__).with_name('README.md')
+    start, end = '<!-- BARIA:EXAMPLES:START -->', '<!-- BARIA:EXAMPLES:END -->'
+    document = target.read_text(encoding='utf-8')
+    if document.count(start) != 1 or document.count(end) != 1:
+        raise ValueError('README precisa de um único bloco de exemplos demarcado.')
+    before, body = document.split(start, 1)
+    _, after = body.split(end, 1)
+    examples = generate().split('\n', 1)[1].strip()
+    examples = '\n'.join('#' + line if line.startswith('## ') else line for line in examples.splitlines())
+    target.write_text(before + start + '\n\n' + examples + '\n\n' + end + after, encoding='utf-8')
+    print('Seção de exemplos atualizada no README.md')
