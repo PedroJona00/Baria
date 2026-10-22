@@ -54,13 +54,106 @@ def quantity(text, multiplier):
         if word in plurals: unit=plurals[word]+unit[len(word):]
     return formatted + (' ' + unit if unit else '')
 
+def taste_adjustment(text, state):
+    """Identifica direção do ajuste sem confundir elogios, negações e preferências."""
+    q = normalize(text)
+    # Correção local e conservadora: preserva o texto e o catálogo originais.
+    q = re.sub(r'\bsuavis', 'suaviz', q)
+
+    def negated(position):
+        clause = re.split(r'[,;.!?]|\b(?:mas|porem|e)\b', q[:position])[-1]
+        return bool(re.search(r'\b(?:nao|nunca|nem)\b', ' '.join(clause.split()[-5:])))
+
+    desired = (
+        ('soften', r'\b(?:suaviz\w*|ameniz\w*|diluir|dilua|diluindo)\b|\b(?:menos\s+(?:forte|intens[oa])|mais\s+(?:suave|leve|frac[oa])|nao\s+tao\s+forte)\b'),
+        ('strengthen', r'\b(?:mais\s+(?:forte|intens[oa]|encorpad[oa])|menos\s+(?:frac[oa]|aguad[oa]|ral[oa]))\b'),
+        ('less_sweet', r'\bmenos\s+(?:doce|adocicad[oa])\b'),
+        ('more_sweet', r'\bmais\s+(?:doce|adocicad[oa])\b|\b(?:adocar|adoce)\b'),
+        ('less_bitter', r'\bmenos\s+amarg[oa]\b|\b(?:reduzir|diminuir|tirar|amenizar)\s+(?:o\s+)?amargor\b'),
+        ('less_sour', r'\bmenos\s+(?:azed[oa]|acid[oa])\b|\b(?:reduzir|diminuir|tirar|amenizar)\s+(?:a\s+)?acidez\b'),
+    )
+    requests = []
+    rejected = set()
+    for kind, pattern in desired:
+        for match in re.finditer(pattern, q):
+            if not negated(match.start()):
+                requests.append(kind)
+            else:
+                rejected.add(kind)
+    # “Quero suave” e “deixar a bebida fraca” também expressam um objetivo.
+    adjective = r'forte|intens[oa]|pesad[oa]|suave|leve|frac[oa]|aguad[oa]|ral[oa]|doce|amarg[oa]|azed[oa]|acid[oa]|sem\s+(?:sabor|gosto)'
+    goals = re.finditer(r'\b(?:quero|prefiro|deixe|deixar|torne|tornar)\b(?:\s+\w+){0,4}?\s+(?P<quality>' + adjective + r')\b', q)
+    for match in goals:
+        if re.search(r'\b(?:mais|menos)\b', match.group()):
+            continue
+        if match.group().split()[0] in ('quero', 'prefiro') and not (state.get('last') or state.get('cap_pending', {}).get('kind') == 'taste'):
+            continue
+        if not negated(match.start()):
+            quality = match['quality']
+            if re.fullmatch(r'suave|leve|frac[oa]', quality):
+                requests.append('soften')
+    specific = set(requests) - {'soften'}
+    if specific and specific <= {'less_bitter', 'less_sour'}:
+        requests = list(specific)
+    elif specific and 'soften' in requests and specific <= {'less_sweet'}:
+        requests = list(specific)
+    if requests:
+        kinds = set(requests)
+        return next(iter(kinds)) if len(kinds) == 1 else 'clarify'
+
+    observed = re.finditer(
+        r'\b(?:ficou|ficaram|esta|estava|ta|achei|senti|parece|pareceu)\b'
+        r'(?:\s+\w+){0,5}?\s+(?P<quality>' + adjective + r')\b', q,
+    )
+    problems = []
+    for match in observed:
+        if not negated(match.start()):
+            quality = match['quality']
+            if re.fullmatch(r'forte|intens[oa]|pesad[oa]', quality):
+                problems.append('soften')
+            elif re.fullmatch(r'frac[oa]|aguad[oa]|ral[oa]|sem\s+(?:sabor|gosto)', quality):
+                problems.append('strengthen')
+            elif quality == 'doce':
+                problems.append('less_sweet')
+            elif re.fullmatch(r'amarg[oa]', quality):
+                problems.append('less_bitter')
+            elif re.fullmatch(r'azed[oa]|acid[oa]', quality):
+                problems.append('less_sour')
+    if problems:
+        return problems[-1] if problems[-1] not in rejected else None
+
+    brief = re.fullmatch(
+        r'(?:(?:a|o|minha|meu|essa|esse)\s+)?(?:(?:bebida|drink|cafe|cha)\s+)?'
+        r'(?:muito\s+)?(?P<quality>' + adjective + r')(?:\s+demais)?[.!?]*', q,
+    )
+    if brief:
+        quality = brief['quality']
+        if quality in ('suave', 'leve') and (state.get('last') or state.get('cap_pending', {}).get('kind') == 'taste'):
+            return 'soften'
+        if re.fullmatch(r'forte|intens[oa]|pesad[oa]', quality):
+            return 'soften'
+        if re.fullmatch(r'frac[oa]|aguad[oa]|ral[oa]|sem\s+(?:sabor|gosto)', quality):
+            return 'strengthen'
+        # Sabores isolados continuam sendo preferências fora de uma tarefa de ajuste.
+        if state.get('cap_pending', {}).get('kind') == 'taste':
+            if quality == 'doce':
+                return 'less_sweet'
+            if re.fullmatch(r'amarg[oa]', quality):
+                return 'less_bitter'
+            if re.fullmatch(r'azed[oa]|acid[oa]', quality):
+                return 'less_sour'
+    if re.search(r'\b(?:corrigir|ajustar|mudar)\s+(?:o\s+)?sabor\b', q):
+        return 'clarify'
+    return None
+
+
 def detect(text, state):
     q = normalize(text)
     if re.search(r'\b(pesquis[ae]|busque|buscar|procure)\b.*\b(internet|web|wikipedia|fora do catalogo)\b', q) or re.search(r'\b(pesquis[ae]|busque|procure)\s+(?:sobre\s+)?',q):
         return 'online'
     if re.search(r'\b(trocar|substituir|substituo|troco|substituicao)\b',q): return 'substitute'
     if re.search(r'\b(sem|nao tenho)\s+(?:uma? |o |a )?(coqueteleira|liquidificador|coador|dosador|macerador)\b',q): return 'equipment'
-    if re.search(r'\b(ficou|esta|ta)\s+(?:muito |demais |forte |doce |amargo |azedo )',q) or re.search(r'\b(corrigir|ajustar)\s+(?:o )?sabor\b',q):
+    if taste_adjustment(text, state):
         return 'taste'
     if re.search(r'\b(conservar|conservacao|guardar|armazenar|geladeira|dura|estraga)\b|hoje.*amanha|amanha.*servir',q): return 'storage'
     if re.search(r'\b(orcamento|gastar|gastando|custo|custos|preco|precos|custa|barato|barata|reais)\b|r\$',q): return 'budget'
@@ -165,14 +258,31 @@ class Capabilities:
         return {'message':prefix+tips[tool]}
 
     def taste(self,text,q,pending):
-        if 'doce' in q: tip='Dilua uma pequena amostra com água e prove. Se combinar com a receita e suas restrições, acrescente algumas gotas de limão à amostra. Só ajuste o restante depois.'
-        elif re.search(r'amarg|azed|acid',q): tip='Dilua uma pequena amostra com água e prove. Se você puder e desejar adicionar açúcar, teste uma pequena quantidade já dissolvida. Não há proporção universal para corrigir o sabor.'
-        elif 'forte' in q: tip='Se o sabor alcoólico ficou intenso, aumente a proporção de misturador sem álcool compatível ou reduza o destilado na próxima preparação. Diluir não remove o álcool já presente nem reduz a quantidade total ingerida se beber tudo.'
-        elif 'aguad' in q: tip='Teste uma pequena quantidade do ingrediente principal em uma amostra, respeitando as restrições. Na próxima vez, resfrie os ingredientes antes e acrescente gelo ao servir.'
-        else: return self.ask('taste','O que aconteceu: ficou doce, amargo, azedo, forte ou aguado?')
+        context = {**self.state, 'cap_pending': pending} if pending.get('kind') == 'taste' else self.state
+        adjustment = taste_adjustment(text, context)
+        tips = {
+            'soften': 'Para suavizar, dilua uma pequena amostra com água e prove antes de ajustar o restante. Se o incômodo for o sabor alcoólico, reduza o destilado na próxima preparação ou use um misturador sem álcool compatível. Se for café, amargor ou acidez, diga qual aspecto está intenso para eu orientar melhor. Diluir não remove o álcool já presente nem reduz a quantidade total ingerida se beber tudo.',
+            'strengthen': 'Para uma bebida fraca, aguada ou sem sabor, teste uma pequena quantidade do ingrediente principal em uma amostra, respeitando as restrições. Na próxima vez, resfrie os ingredientes antes e evite excesso de água ou gelo derretido. Isso é um ajuste de sabor; não vou aumentar o álcool automaticamente.',
+            'less_sweet': 'Para deixar menos doce, dilua uma pequena amostra com água e prove. Se combinar com a receita e suas restrições, acrescente algumas gotas de limão à amostra. Só ajuste o restante depois.',
+            'more_sweet': 'Para deixar mais doce, teste uma pequena quantidade de açúcar já dissolvido em uma amostra, apenas se puder e desejar usá-lo. Prove antes de ajustar o restante; não há proporção universal.',
+            'less_bitter': 'Para reduzir o amargor, dilua uma pequena amostra com água e prove. Se você puder e desejar adicionar açúcar, teste uma pequena quantidade já dissolvida. Não há proporção universal para corrigir o sabor.',
+            'less_sour': 'Para reduzir a acidez ou o azedo, dilua uma pequena amostra com água e prove. Se você puder e desejar adicionar açúcar, teste uma pequena quantidade já dissolvida. Não há proporção universal para corrigir o sabor.',
+        }
+        if adjustment not in tips:
+            return self.ask('taste','Você quer suavizar ou intensificar? A bebida ficou forte, fraca, aguada, doce, amarga ou ácida? Diga o que deseja mudar.')
+        drink = self.target(text)
+        if drink:
+            self.state['last'] = drink['id']
+        prefix = f'Para ajustar {drink["nome"]}:\n' if drink else ''
+        tip = tips[adjustment]
         if self.state['prefs'].get('evitar') or self.state['avoid_flavors']:
-            tip='Comece diluindo uma pequena amostra com água e prove. Como você informou restrições, não vou indicar um ingrediente adicional automaticamente. Diga qual bebida está ajustando e o que pode usar.'
-        return {'message':tip+'\nSão ajustes de paladar, não orientações para recuperar uma bebida deteriorada.'}
+            tip = ('Como você informou restrições, não vou indicar um ingrediente adicional automaticamente. '
+                   'Diga quais ingredientes pode usar e se quer suavizar ou intensificar. '
+                   'Teste qualquer ajuste em uma pequena amostra antes de mudar o restante.')
+        result = {'message': prefix + tip + '\nSão ajustes de paladar; a receita original permanece no catálogo.'}
+        if drink:
+            result['drink'] = drink
+        return result
 
     def occasion(self,text,q,pending):
         occasion=next((x for x in OCCASIONS if re.search(r'\b'+re.escape(x)+r'\b',q)),None)

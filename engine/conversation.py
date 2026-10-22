@@ -83,7 +83,10 @@ class ConversationEngine:
                     return finish('Encontrei preferências contraditórias. Diga se deseja com ou sem álcool e repita o pedido.')
                 context.merge(ui, entities)
             elif capability != 'online':
-                if rules.conflicts(entities):
+                # “Não quero mais doce; quero menos doce” descreve um ajuste,
+                # não duas preferências sensoriais contraditórias.
+                checked_entities = {**entities, 'flavors': [], 'avoid_flavors': []} if capability == 'taste' else entities
+                if rules.conflicts(checked_entities):
                     return finish('Encontrei preferências contraditórias. Esclareça se deseja com ou sem álcool antes de continuar.')
                 context.merge(ui, {**entities, 'flavors':[], 'avoid_flavors':[], 'available':[]})
             # Pedido prático explicitamente novo encerra uma clarificação antiga.
