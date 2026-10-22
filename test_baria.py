@@ -762,5 +762,73 @@ class TasteVariationTests(unittest.TestCase):
         self.assertNotIn('drink', result)
 
 
+class EmptyContributionTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(dir=Path(__file__).parent)
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        (self.root / 'data').mkdir()
+        for name in ('memoria.json', 'regras.json'):
+            (self.root / 'data' / name).write_bytes((app.ROOT / 'data' / name).read_bytes())
+        root_patch = patch.object(app, 'ROOT', self.root)
+        root_patch.start()
+        self.addCleanup(root_patch.stop)
+        env = patch.dict(os.environ, {'BARIA_DATA_DIR': str(self.root / 'data')})
+        env.start()
+        self.addCleanup(env.stop)
+        app.CACHE.invalidate()
+        self.addCleanup(app.CACHE.invalidate)
+
+    def add_facts(self, facts):
+        path = self.root / 'data/memoria.json'
+        memory = json.loads(path.read_text(encoding='utf-8'))
+        next(drink for drink in memory['bebidas'] if drink['id'] == 'b015')['contribuicoes'] = facts
+        path.write_text(json.dumps(memory), encoding='utf-8')
+        return path
+
+    def test_startup_ignores_empty_entries_without_editing_source(self):
+        valid = {'texto': 'Curiosidade válida que deve ser preservada.', 'verificada': False}
+        path = self.add_facts([{}, {'texto': '  '}, valid])
+        original = path.read_bytes()
+        with self.assertLogs('engine.catalog', level='WARNING') as logs:
+            app.initialize_storage()
+            memory = app.read_memory()
+            app.get_knowledge()
+        self.assertEqual(len(logs.output), 1)
+        self.assertEqual(next(drink for drink in memory['bebidas'] if drink['id'] == 'b015')['contribuicoes'], [valid])
+        self.assertEqual(path.read_bytes(), original)
+        self.assertIn('Whisky', app.reply({}, 'Whisky', {})['message'])
+
+    def test_new_runtime_folder_accepts_seed_with_empty_entry(self):
+        source = self.add_facts([{}])
+        original = source.read_bytes()
+        folder = self.root / 'runtime'
+        with patch.dict(os.environ, {'BARIA_DATA_DIR': str(folder)}):
+            with self.assertLogs('engine.catalog', level='WARNING'):
+                app.initialize_storage()
+            self.assertEqual((folder / 'memoria.json').read_bytes(), original)
+            self.assertEqual(next(drink for drink in app.read_memory()['bebidas'] if drink['id'] == 'b015')['contribuicoes'], [])
+        self.assertEqual(source.read_bytes(), original)
+
+    def test_nonempty_invalid_contribution_is_not_discarded(self):
+        from engine.catalog import KnowledgeError
+        path = self.add_facts([{'conteudo_antigo': 'Texto que não pode ser apagado.'}])
+        original = path.read_bytes()
+        with self.assertRaises(KnowledgeError):
+            app.initialize_storage()
+        self.assertEqual(path.read_bytes(), original)
+
+    def test_new_contribution_preserves_valid_entries(self):
+        valid = {'texto': 'Uma contribuição válida anterior.', 'verificada': False}
+        self.add_facts([{}, valid])
+        with self.assertLogs('engine.catalog', level='WARNING'):
+            app.initialize_storage()
+        self.assertTrue(app.save_fact('b015', 'Uma nova contribuição válida.'))
+        facts = next(drink for drink in app.read_memory()['bebidas'] if drink['id'] == 'b015')['contribuicoes']
+        self.assertEqual(len(facts), 2)
+        self.assertEqual(facts[0], valid)
+        self.assertFalse(app.save_fact('b015', 'Uma nova contribuição válida.'))
+
+
 if __name__ == '__main__':
     unittest.main()

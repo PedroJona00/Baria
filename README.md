@@ -187,6 +187,8 @@ O validador garante invariantes do programa, não verifica fatos do mundo real. 
 
 A inicialização valida campos obrigatórios, IDs únicos, álcool booleano, ingredientes, quantidades não vazias/positivas e a estrutura das contribuições. Também verifica padrões, prioridades e confiança das regras. Isso não valida a veracidade culinária de receitas ou medidas textuais. Arquivos inválidos impedem a inicialização; se uma edição inválida ocorrer com o serviço em execução, as consultas retornam indisponibilidade em vez de usar silenciosamente dados antigos.
 
+Contribuições vazias como `{}` ou `{"texto": ""}` são ignoradas apenas na cópia em memória, com aviso no terminal. A leitura não regrava o JSON original, e contribuições válidas são preservadas. Registros desconhecidos que contenham dados continuam sendo sinalizados para revisão. Para cadastrar uma bebida sem contribuições, use `"contribuicoes": []`. Ao salvar uma nova curiosidade, o arquivo é atualizado com as contribuições válidas e a nova entrada.
+
 Cópias do catálogo e respostas retornadas a chamadores são isoladas do cache, evitando que uma alteração acidental em uma resposta contamine outras conversas.
 
 ### Servidores e configurações compartilhadas
