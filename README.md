@@ -56,7 +56,7 @@ python -m unittest -v
 python demo.py
 ```
 
-A suíte cobre preferências, contexto, negações, receitas, capacidades adicionais, persistência, HTTP e implantação. O GitHub Actions executa os testes em Python 3.10 e 3.13. `demo.py` atualiza a seção de exemplos deste README usando uma cópia temporária do catálogo.
+A suíte está reunida em `test_baria.py`, organizada por classes. Ela cobre preferências, contexto, negações, receitas, capacidades adicionais, persistência, HTTP e implantação. O GitHub Actions executa os testes em Python 3.10 e 3.13. `demo.py` atualiza a seção de exemplos deste README usando uma cópia temporária do catálogo.
 
 ## Organização
 
@@ -68,7 +68,7 @@ A suíte cobre preferências, contexto, negações, receitas, capacidades adicio
 | `data/regras.json` | Padrões e prioridades configuráveis. |
 | `data/memoria.json` | Catálogo inicial. |
 | `static/` | Interface HTML, CSS e JavaScript responsiva. |
-| `test_*.py` | Testes automatizados. |
+| `test_baria.py` | Testes automatizados. |
 
 ## Documentação
 
@@ -248,7 +248,7 @@ A consulta depende da conexão e da disponibilidade da Wikipédia. Há timeout, 
 
 ### Manutenção e testes
 
-`engine/capabilities.py` contém o reconhecimento e as regras das capacidades práticas. `engine/conversation.py` as integra às sessões, antes da resposta genérica de desconhecimento. `test_capabilities.py` verifica as novas funções e usa respostas simuladas para testar o serviço externo sem depender da rede.
+`engine/capabilities.py` contém o reconhecimento e as regras das capacidades práticas. `engine/conversation.py` as integra às sessões, antes da resposta genérica de desconhecimento. `test_baria.py` verifica as novas funções e usa respostas simuladas para testar o serviço externo sem depender da rede.
 
 Execute:
 
