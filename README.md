@@ -64,6 +64,8 @@ A suíte está reunida em `test_baria.py`, organizada por classes. Ela cobre pre
 | --- | --- |
 | `app.py` | Servidor local e persistência JSON. |
 | `serve.py`, `web.py` | Servidor Waitress e interface WSGI. |
+| `config.py` | Configurações e limites compartilhados pelos dois servidores. |
+| `engine/catalog.py` | Validação do catálogo e cache da base de conhecimento. |
 | `engine/` | Interpretação, entidades, intenções, contexto, regras e respostas. |
 | `data/regras.json` | Padrões e prioridades configuráveis. |
 | `data/memoria.json` | Catálogo inicial. |
@@ -169,7 +171,7 @@ Processo de manutenção:
 4. Para sinônimos, altere `ALIASES`. Para novas entidades, altere `EntityExtractor`.
 5. Para uma capacidade nova, adicione a intenção, um plano e a geração correspondente. Se faltar conhecimento, adicione dados verificados ao catálogo em vez de fabricar uma resposta.
 6. Para inferências, adicione uma `Rule` com fatos necessários, conclusão e prioridade; atualize a decisão que consome a conclusão.
-7. Execute `python -m unittest -v`, revise os exemplos e reinicie o servidor quando modificar Python. O JSON é lido a cada turno.
+7. Execute `python -m unittest -v`, revise os exemplos e reinicie o servidor quando modificar Python. Alterações nos arquivos JSON invalidam o cache automaticamente.
 
 ### Limites explícitos
 
@@ -177,7 +179,21 @@ Processo de manutenção:
 
 “Pouco doce” ou “menos doce” é tratado conservadoramente como exclusão do perfil doce: não há escala sensorial numérica no catálogo. Ingredientes são comparados por nome; não há inferência automática de alergias. Datas aceitas são explícitas, no formato `dd/mm/aaaa`, e são validadas. Datas relativas não são convertidas. Números e unidades são extraídos. O módulo de capacidades calcula porções multiplicando as quantidades cadastradas; não converte gramas em mililitros nem medidas vagas. Calorias e teor alcoólico não são estimados. Custos usam exclusivamente valores fornecidos pelo usuário.
 
-O validador garante invariantes do programa, não verifica fatos do mundo real. O histórico é limitado, e referências usam principalmente o último assunto. A aplicação usa um único processo e não possui autenticação para implantação pública; o servidor de hospedagem está descrito na [seção de hospedagem](#hospedagem). O catálogo é pequeno; sua leitura por turno é intencional para refletir contribuições imediatamente. Para uma base muito maior, pode-se adicionar cache por data de modificação, preservando os mesmos contratos.
+O validador garante invariantes do programa, não verifica fatos do mundo real. O histórico é limitado, e referências usam principalmente o último assunto. A aplicação usa um único processo e não possui autenticação para implantação pública; o servidor de hospedagem está descrito na [seção de hospedagem](#hospedagem).
+
+### Cache e validação de dados
+
+`engine/catalog.py` mantém apenas a versão ativa do catálogo e da base de conhecimento em cache. A cada consulta, verifica caminho, datas de modificação/criação, tamanho e identidade dos arquivos. Os JSONs só são relidos e os índices reconstruídos quando essa assinatura muda. Salvar uma curiosidade invalida o cache imediatamente. Catálogo e regras continuam editáveis sem reiniciar; mudanças no código Python precisam de reinicialização.
+
+A inicialização valida campos obrigatórios, IDs únicos, álcool booleano, ingredientes, quantidades não vazias/positivas e a estrutura das contribuições. Também verifica padrões, prioridades e confiança das regras. Isso não valida a veracidade culinária de receitas ou medidas textuais. Arquivos inválidos impedem a inicialização; se uma edição inválida ocorrer com o serviço em execução, as consultas retornam indisponibilidade em vez de usar silenciosamente dados antigos.
+
+Cópias do catálogo e respostas retornadas a chamadores são isoladas do cache, evitando que uma alteração acidental em uma resposta contamine outras conversas.
+
+### Servidores e configurações compartilhadas
+
+O servidor local em `app.py` adapta suas requisições para `web.application`, a mesma aplicação usada pelo Waitress. Rotas, validação, cookies, expiração e limites de sessão seguem a mesma lógica nos dois modos. Requisições de chat exigem `Content-Type: application/json`, incluindo variantes com `charset`. A interface já envia esse cabeçalho.
+
+`config.py` centraliza rotas estáticas, portas padrão, caminhos e limites. `HOST`, `PORT`, `BARIA_DATA_DIR`, `BARIA_PUBLIC_URL`, `BARIA_SECURE_COOKIE` e `BARIA_STORAGE_MODE` continuam configuráveis pelo ambiente. Para ajustar limites de desenvolvimento, edite as constantes do módulo e execute os testes.
 
 ### Extensão de capacidades práticas
 
@@ -462,7 +478,7 @@ docker volume create baria-data
 docker run --rm -p 8000:8000 -v baria-data:/data -e BARIA_DATA_DIR=/data -e BARIA_STORAGE_MODE=persistent baria
 ```
 
-Abra `http://localhost:8000`. O volume nomeado mantém dados ao recriar o contêiner. A imagem executa como usuário sem privilégios. Para internet, coloque atrás de um proxy HTTPS e configure `BARIA_PUBLIC_URL=https://seu-dominio` e `BARIA_SECURE_COOKIE=1`.
+Abra `http://localhost:8000`. O volume nomeado mantém dados ao recriar o contêiner. A imagem executa como usuário sem privilégios e copia apenas o servidor, os módulos, a interface e os dois JSONs de distribuição; testes, geradores e documentação ficam fora da imagem. Para internet, coloque atrás de um proxy HTTPS e configure `BARIA_PUBLIC_URL=https://seu-dominio` e `BARIA_SECURE_COOKIE=1`.
 
 ### Verificação e operação
 
