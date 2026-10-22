@@ -1,6 +1,7 @@
 """Validação estrutural e cache limitado a uma versão ativa do catálogo."""
 import copy
 import json
+import logging
 import re
 import threading
 
@@ -9,6 +10,32 @@ from .knowledge import KnowledgeBase
 
 class KnowledgeError(ValueError):
     """Catálogo ou regras inválidos: falha de configuração, não do visitante."""
+
+
+def normalize_empty_contributions(memory):
+    """Remove apenas espaços vazios conhecidos da cópia carregada em memória."""
+    removed = 0
+    if not isinstance(memory, dict) or not isinstance(memory.get('bebidas'), list):
+        return removed
+    metadata = {'texto', 'origem', 'verificada', 'data'}
+    for drink in memory['bebidas']:
+        if not isinstance(drink, dict) or not isinstance(drink.get('contribuicoes'), list):
+            continue
+        kept = []
+        for fact in drink['contribuicoes']:
+            empty = isinstance(fact, dict) and (
+                not fact or (
+                    isinstance(fact.get('texto'), str)
+                    and not fact['texto'].strip()
+                    and set(fact) <= metadata
+                )
+            )
+            if empty:
+                removed += 1
+            else:
+                kept.append(fact)
+        drink['contribuicoes'] = kept
+    return removed
 
 
 def validate_catalog(memory):
@@ -67,7 +94,13 @@ class CatalogCache:
                 memory = json.loads(path.read_text(encoding='utf-8'))
             except (ValueError, UnicodeError) as error:
                 raise KnowledgeError('Não foi possível interpretar o catálogo JSON.') from error
+            removed = normalize_empty_contributions(memory)
             validate_catalog(memory)
+            if removed:
+                logging.getLogger(__name__).warning(
+                    '%d contribuição(ões) vazia(s) ignorada(s) na leitura. O JSON original não foi alterado.',
+                    removed,
+                )
             self._memory, self._memory_key = memory, key
             self._knowledge_key = None
         return self._memory

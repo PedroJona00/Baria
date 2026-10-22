@@ -10,7 +10,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 import config
-from engine.catalog import CatalogCache, validate_catalog
+from engine.catalog import CatalogCache, normalize_empty_contributions, validate_catalog
 
 ROOT = Path(__file__).resolve().parent
 LOCK = threading.RLock()
@@ -39,7 +39,9 @@ def initialize_storage():
         path = folder / 'memoria.json'
         if not path.exists():
             seed = (ROOT / 'data/memoria.json').read_bytes()
-            validate_catalog(json.loads(seed))
+            memory = json.loads(seed)
+            normalize_empty_contributions(memory)
+            validate_catalog(memory)
             temporary = path.with_suffix('.tmp')
             temporary.write_bytes(seed)
             os.replace(temporary, path)
