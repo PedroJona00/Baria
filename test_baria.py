@@ -408,7 +408,7 @@ class Socket:
 class HTTPTests(unittest.TestCase):
     def request(self, method, path, body=None, headers=None):
         data = json.dumps(body or {}).encode()
-        headers = {'Host':'127.0.0.1:8000', 'Content-Length':str(len(data)), **(headers or {})}
+        headers = {'Host':'127.0.0.1:8000', 'Content-Length':str(len(data)), 'Content-Type':'application/json', **(headers or {})}
         request = f'{method} {path} HTTP/1.1\r\n' + ''.join(f'{k}: {v}\r\n' for k,v in headers.items()) + '\r\n'
         socket = Socket(request.encode() + data)
         with patch.object(app.Handler, 'log_message'):
@@ -497,6 +497,12 @@ class DeploymentTests(unittest.TestCase):
         self.request('POST', '/api/chat', {'message': 'não entendeu meu pedido', 'action': 'feedback'})
         self.assertTrue((Path(self.temp.name) / 'feedback.jsonl').exists())
 
+    def test_invalid_catalog_returns_unavailable(self):
+        path = Path(self.temp.name) / 'memoria.json'
+        path.write_text('{invalid', encoding='utf-8')
+        self.assertEqual(self.request(path='/healthz')['status'], 503)
+        self.assertEqual(self.request('POST', '/api/chat', {'message': 'oi'})['status'], 503)
+
     def test_session_expiry_and_limit(self):
         app.SESSIONS['expired'] = {'_seen': -web.SESSION_TTL}
         result = self.request('POST', '/api/chat', {'message': 'oi'}, HTTP_COOKIE='baria=expired')
@@ -514,6 +520,119 @@ class DeploymentTests(unittest.TestCase):
             self.assertIn('apagados', json.loads(result['body'])['message'])
             result = self.request('POST', '/api/chat', {'message': 'Gosto de servir com gelo.'}, HTTP_COOKIE=cookie)
             self.assertIn('apagados', json.loads(result['body'])['message'])
+
+
+# Cache, validação e compatibilidade dos servidores
+
+class CatalogTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(dir=Path(__file__).parent)
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        (self.root / 'data').mkdir()
+        for name in ('memoria.json', 'regras.json'):
+            (self.root / 'data' / name).write_bytes((app.ROOT / 'data' / name).read_bytes())
+        self.root_patch = patch.object(app, 'ROOT', self.root)
+        self.root_patch.start()
+        self.addCleanup(self.root_patch.stop)
+        self.env = patch.dict(os.environ, {'BARIA_DATA_DIR': str(self.root / 'data')})
+        self.env.start()
+        self.addCleanup(self.env.stop)
+        app.CACHE.invalidate()
+        self.addCleanup(app.CACHE.invalidate)
+
+    def test_reuses_knowledge_without_rereading_json(self):
+        original = Path.read_text
+        with patch.object(Path, 'read_text', autospec=True, side_effect=original) as reads:
+            first = app.get_knowledge()
+            self.assertEqual(reads.call_count, 2)
+            self.assertIs(app.get_knowledge(), first)
+            app.reply({}, 'Como faço uma caipirinha?', {})
+            self.assertEqual(reads.call_count, 2)
+
+    def test_snapshot_and_reply_do_not_expose_cached_data(self):
+        snapshot = app.read_memory()
+        snapshot['bebidas'].clear()
+        result = app.reply({}, 'Como faço uma caipirinha?', {})
+        result['drink']['ingredientes'].clear()
+        self.assertTrue(app.read_memory()['bebidas'])
+        self.assertTrue(app.reply({}, 'Como faço uma caipirinha?', {})['drink']['ingredientes'])
+
+    def test_external_catalog_edit_rebuilds_indexes(self):
+        old = app.get_knowledge()
+        memory = app.read_memory()
+        memory['bebidas'][0]['nome'] = 'Caipirinha de teste'
+        path = self.root / 'data/memoria.json'
+        replacement = path.with_suffix('.tmp')
+        replacement.write_text(json.dumps(memory), encoding='utf-8')
+        os.replace(replacement, path)
+        current = app.get_knowledge()
+        self.assertIsNot(current, old)
+        self.assertEqual(current.mentioned('caipirinha de teste'), ['b001'])
+
+    def test_external_rules_edit_changes_interpretation(self):
+        old = app.get_knowledge()
+        path = self.root / 'data/regras.json'
+        rules = json.loads(path.read_text(encoding='utf-8'))
+        next(rule for rule in rules['intencoes'] if rule['name'] == 'greet')['patterns'].append('^salutations$')
+        path.write_text(json.dumps(rules), encoding='utf-8')
+        self.assertIsNot(app.get_knowledge(), old)
+        self.assertEqual(app.reply({}, 'salutations', {})['diagnostics']['intent'], 'greet')
+
+    def test_saved_contribution_invalidates_cache(self):
+        first = app.get_knowledge()
+        self.assertTrue(app.save_fact('b001', 'Contribuição persistida para validar o cache.'))
+        self.assertIsNot(app.get_knowledge(), first)
+        self.assertIn('Contribuição persistida', app.read_memory()['bebidas'][0]['contribuicoes'][-1]['texto'])
+
+    def test_rejects_malformed_catalog(self):
+        from engine.catalog import KnowledgeError, validate_catalog
+        for kind in ('duplicate', 'missing', 'alcohol', 'ingredient', 'quantity', 'contribution'):
+            with self.subTest(kind=kind):
+                memory = app.read_memory()
+                drink = memory['bebidas'][0]
+                if kind == 'duplicate':
+                    memory['bebidas'][1]['id'] = drink['id']
+                elif kind == 'missing':
+                    del drink['preparo']
+                elif kind == 'alcohol':
+                    drink['alcool'] = 'sim'
+                elif kind == 'ingredient':
+                    drink['ingredientes'][0]['nome'] = ''
+                elif kind == 'quantity':
+                    drink['ingredientes'][0]['quantidade'] = '0 ml'
+                else:
+                    drink['contribuicoes'] = [{'texto': ''}]
+                with self.assertRaises(KnowledgeError):
+                    validate_catalog(memory)
+
+    def test_invalid_refresh_does_not_serve_old_catalog(self):
+        from engine.catalog import KnowledgeError
+        app.get_knowledge()
+        (self.root / 'data/memoria.json').write_text('{invalid', encoding='utf-8')
+        with self.assertRaises(KnowledgeError):
+            app.get_knowledge()
+
+    def test_startup_rejects_invalid_rules(self):
+        from engine.catalog import KnowledgeError
+        (self.root / 'data/regras.json').write_text('{"intencoes": [{"name": "bad"}]}', encoding='utf-8')
+        with self.assertRaises(KnowledgeError):
+            app.initialize_storage()
+
+
+class SharedHTTPTests(unittest.TestCase):
+    request = HTTPTests.request
+    def test_rejects_unsupported_media_type(self):
+        status, _ = self.request('POST', '/api/chat', {'message': 'oi'}, {'Content-Type': 'application/jsonp'})
+        self.assertIn('415', status)
+
+    def test_local_health_and_head(self):
+        status, body = self.request('GET', '/healthz')
+        self.assertIn('200', status)
+        self.assertEqual(json.loads(body)['drinks'], 102)
+        status, body = self.request('HEAD', '/')
+        self.assertIn('200', status)
+        self.assertEqual(body, b'')
 
 
 if __name__ == '__main__':

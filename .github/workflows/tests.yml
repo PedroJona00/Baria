@@ -15,3 +15,44 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install -r requirements.txt
       - run: python -m unittest -v
+      - name: Testar os dois servidores em HTTP real
+        env:
+          HOST: 127.0.0.1
+          PORT: "8123"
+          BARIA_DATA_DIR: runtime-ci
+        run: |
+          for entry in app.py serve.py; do
+            python "$entry" > baria-server.log 2>&1 &
+            server_pid=$!
+            trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+            for attempt in {1..20}; do
+              if curl -fsS http://127.0.0.1:8123/healthz > health.json; then break; fi
+              sleep 1
+            done
+            python -c "import json; assert json.load(open('health.json'))['drinks'] == 102"
+            cookie=$(mktemp)
+            for message in 'Como faço uma caipirinha?' 'E os ingredientes dela?'; do
+              payload=$(python -c 'import json,sys; print(json.dumps({"message":sys.argv[1]}))' "$message")
+              curl -fsS -c "$cookie" -b "$cookie" -H 'Content-Type: application/json' \
+                -d "$payload" http://127.0.0.1:8123/api/chat > answer.json
+              python -c "import json; assert json.load(open('answer.json'))['drink']['nome'] == 'Caipirinha'"
+            done
+            kill "$server_pid"
+            wait "$server_pid" || true
+            trap - EXIT
+          done
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construir imagem de execução
+        run: docker build --tag baria:test .
+      - name: Validar inicialização e conteúdo da imagem
+        run: >-
+          docker run --rm baria:test python -c
+          "from pathlib import Path; import app, waitress;
+          app.initialize_storage();
+          assert len(app.read_memory()['bebidas']) >= 100;
+          assert not Path('test_baria.py').exists();
+          assert not Path('README.md').exists();
+          print('Imagem pronta: catálogo válido e arquivos de desenvolvimento excluídos.')"
