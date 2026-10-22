@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: baria
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python serve.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.5
+      - key: HOST
+        value: 0.0.0.0
+      - key: BARIA_DATA_DIR
+        value: /tmp/baria-data
+      - key: BARIA_STORAGE_MODE
+        value: ephemeral
+      - key: BARIA_SECURE_COOKIE
+        value: "1"
