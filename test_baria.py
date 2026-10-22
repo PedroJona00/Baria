@@ -635,5 +635,132 @@ class SharedHTTPTests(unittest.TestCase):
         self.assertEqual(body, b'')
 
 
+class TasteVariationTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(dir=Path(__file__).parent)
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        (self.root / 'data').mkdir()
+        for name in ('memoria.json', 'regras.json'):
+            (self.root / 'data' / name).write_bytes((app.ROOT / 'data' / name).read_bytes())
+        root_patch = patch.object(app, 'ROOT', self.root)
+        root_patch.start()
+        self.addCleanup(root_patch.stop)
+        env = patch.dict(os.environ, {'BARIA_DATA_DIR': str(self.root / 'data')})
+        env.start()
+        self.addCleanup(env.stop)
+        self.original = (self.root / 'data/memoria.json').read_bytes()
+        self.state = {}
+
+    def tearDown(self):
+        self.assertEqual(self.original, (self.root / 'data/memoria.json').read_bytes())
+
+    def ask(self, message):
+        return app.reply(self.state, message, {})
+
+    def test_original_espresso_message(self):
+        result = self.ask('gostei do espresso martini, mas achei ele muito forte, poderia mudar algo para suavisa-lo?')
+        self.assertEqual(result['diagnostics']['intent'], 'taste')
+        self.assertIn('Para suavizar', result['message'])
+        self.assertEqual(result['drink']['nome'], 'Espresso martini')
+        self.assertIn('não remove o álcool', result['message'])
+
+    def test_softening_variations(self):
+        variations = [
+            'Bebida forte', 'Achei ele muito forte', 'Achei a bebida pesada',
+            'Está muito intensa', 'Pode suavizar?', 'Como suavisa-lo?',
+            'Quero mais suave', 'Como deixo mais leve?', 'Quero mais fraca',
+            'Como amenizar?', 'Pode diluir?', 'Quero menos forte',
+            'Prefiro suave', 'Não tão forte',
+        ]
+        for message in variations:
+            with self.subTest(message=message):
+                self.state = {}
+                self.ask('Espresso Martini')
+                result = self.ask(message)
+                self.assertEqual(result['diagnostics']['intent'], 'taste')
+                self.assertIn('Para suavizar', result['message'])
+
+    def test_weak_and_watery_variations(self):
+        for message in ['Bebida fraca', 'Achei ele muito fraco', 'Ficou aguada', 'Está ralo', 'Ficou sem sabor', 'Quero mais forte', 'Quero menos aguado']:
+            with self.subTest(message=message):
+                self.state = {}
+                self.ask('Espresso Martini')
+                result = self.ask(message)
+                self.assertEqual(result['diagnostics']['intent'], 'taste')
+                self.assertIn('ingrediente principal', result['message'])
+                self.assertIn('não vou aumentar o álcool automaticamente', result['message'])
+
+    def test_requested_direction_overrides_observation(self):
+        self.ask('Espresso Martini')
+        result = self.ask('Ficou fraco, mas quero deixar mais fraco ainda')
+        self.assertIn('Para suavizar', result['message'])
+        result = self.ask('Ficou doce, mas quero mais doce')
+        self.assertIn('Para deixar mais doce', result['message'])
+
+    def test_negated_assessments_do_not_request_adjustments(self):
+        from engine.capabilities import detect
+        for message in ['Não ficou forte', 'Não achei ele muito forte', 'Não quero suavizar', 'Não está aguado', 'Achei forte, mas não quero suavizar']:
+            with self.subTest(message=message):
+                self.assertIsNone(detect(message, {}))
+
+    def test_contrast_and_negative_request(self):
+        self.ask('Espresso Martini')
+        result = self.ask('Não ficou forte, mas ficou muito doce')
+        self.assertIn('menos doce', result['message'])
+        result = self.ask('Não quero mais doce, quero menos doce')
+        self.assertIn('menos doce', result['message'])
+        result = self.ask('Não quero suavizar, quero mais forte')
+        self.assertIn('ingrediente principal', result['message'])
+
+    def test_conflicting_directions_ask_before_adjusting(self):
+        self.ask('Espresso Martini')
+        result = self.ask('Quero mais forte e mais fraco')
+        self.assertIn('suavizar ou intensificar', result['message'])
+        self.assertEqual(self.state['cap_pending']['kind'], 'taste')
+        result = self.ask('Suave')
+        self.assertIn('Para suavizar', result['message'])
+
+    def test_constraints_are_kept(self):
+        self.ask('Não quero leite')
+        self.ask('Como faço Espresso Martini?')
+        result = self.ask('Achei muito forte, pode suavizar?')
+        self.assertIn('restrições', result['message'])
+        self.assertIn('leite', self.state['prefs']['evitar'])
+        self.assertNotIn('acrescente', result['message'])
+
+    def test_new_drink_updates_followup_context(self):
+        self.ask('Limonada')
+        adjusted = self.ask('Achei o Espresso Martini muito forte')
+        self.assertEqual(adjusted['drink']['nome'], 'Espresso martini')
+        result = self.ask('Como preparar ela?')
+        self.assertEqual(result['drink']['id'], adjusted['drink']['id'])
+        self.assertEqual(result['diagnostics']['intent'], 'recipe')
+
+    def test_recommendations_and_descriptions_are_not_hijacked(self):
+        from engine.capabilities import detect
+        for message in ['Quero algo doce', 'Quero uma bebida forte', 'Quero uma bebida fraca', 'A receita leva café forte', 'Foi um fracasso', 'Isso é uma fortaleza']:
+            with self.subTest(message=message):
+                self.assertIsNone(detect(message, {}))
+
+    def test_sweet_bitter_and_sour_variations(self):
+        self.ask('Espresso Martini')
+        for message, expected in [
+            ('Achei muito doce', 'menos doce'),
+            ('Quero menos amarga', 'reduzir o amargor'),
+            ('Está muito azeda', 'reduzir a acidez'),
+            ('Pode diminuir a acidez?', 'reduzir a acidez'),
+        ]:
+            with self.subTest(message=message):
+                result = self.ask(message)
+                self.assertEqual(result['diagnostics']['intent'], 'taste')
+                self.assertIn(expected, result['message'])
+
+    def test_conflicting_alcohol_preferences_still_ask(self):
+        result = self.ask('Quero suavizar uma bebida com álcool e sem álcool')
+        self.assertIn('preferências contraditórias', result['message'])
+        self.assertNotIn('drink', result)
+
+
 if __name__ == '__main__':
     unittest.main()

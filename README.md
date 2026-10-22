@@ -214,7 +214,7 @@ Estas funções usam programação tradicional e os dados existentes. Nenhuma fu
 | Substituição | “Posso trocar cachaça por vodka na caipirinha?” |
 | Porções | “Como faço caipirinha para dez pessoas?” |
 | Equipamento | “Como faço sem coqueteleira?” |
-| Ajuste de sabor | “Ficou muito doce. Como ajusto?” |
+| Ajuste de sabor | “Achei muito forte, como suavizar?” / “Ficou fraca ou aguada” |
 | Ocasião | “O que combina com churrasco sem álcool?” |
 | Orçamento | “Caipirinha com orçamento de 20 reais” |
 | Conservação | “Posso preparar hoje e servir amanhã?” |
@@ -228,7 +228,17 @@ As trocas suportadas estão em `SUBSTITUTIONS`, no arquivo `engine/capabilities.
 
 As orientações de equipamentos cobrem coqueteleira, liquidificador, coador, dosador e macerador. Não prometem textura idêntica. Não se deve agitar líquidos quentes ou gaseificados em recipiente fechado.
 
-Os ajustes de sabor são sugestões graduais em uma pequena amostra. Não há uma quantidade universal que corrija qualquer receita. Com restrições registradas, o sistema começa pela diluição com água. Diluir não elimina o álcool já presente.
+Os ajustes de sabor são sugestões graduais em uma pequena amostra. Não há uma quantidade universal que corrija qualquer receita. Com restrições registradas, o sistema pede quais ingredientes podem ser usados antes de sugerir adições. Diluir não elimina o álcool já presente.
+
+### Variações para ajustar a bebida
+
+O BARIA reconhece “bebida forte”, “achei ele muito forte”, “ficou pesada”, “quero menos forte”, “mais suave”, “mais leve”, “mais fraca”, “suavizar”, “amenizar” e “diluir”. Também aceita a grafia comum incorreta “suavisar”/“suavisa-lo” nessas solicitações.
+
+“Ficou fraca”, “aguada”, “ralo”, “sem sabor”, “quero mais forte” e “menos aguado” acionam orientações para intensificar o sabor. O sistema não aumenta o álcool automaticamente. “Quero mais doce” e “quero menos doce” têm orientações diferentes; também há ajustes para amargor e acidez.
+
+Exemplo: “Gostei do Espresso Martini, mas achei ele muito forte. Poderia mudar algo para suavisa-lo?” recebe sugestões de ajuste para o Espresso Martini, em vez de apenas sua descrição. O nome da bebida passa a ser o assunto para perguntas seguintes. A receita salva permanece inalterada.
+
+As regras distinguem observações de objetivos: “ficou fraca” pede mais sabor; “quero mais fraca” pede suavização. Negativas como “não ficou forte” não disparam correção. Pedidos opostos na mesma mensagem, como “mais forte e mais fraco”, geram esclarecimento. Preferências novas como “quero algo doce” continuam no fluxo de recomendação. Essas regras têm escopo limitado e não compreendem qualquer construção de linguagem natural.
 
 ### Porções
 
