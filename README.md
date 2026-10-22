@@ -56,7 +56,7 @@ python -m unittest -v
 python demo.py
 ```
 
-A suíte está reunida em `test_baria.py`, organizada por classes. Ela cobre preferências, contexto, negações, receitas, capacidades adicionais, persistência, HTTP e implantação. O GitHub Actions executa os testes em Python 3.10 e 3.13. `demo.py` atualiza a seção de exemplos deste README usando uma cópia temporária do catálogo.
+A suíte está reunida em `test_baria.py`, organizada por classes. Ela cobre preferências, contexto, negações, receitas, capacidades adicionais, persistência, HTTP, cache e validação do catálogo. O GitHub Actions executa os testes em Python 3.10 e 3.13, inicia os dois servidores para verificar requisições reais e constrói a imagem Docker para validar sua inicialização e conteúdo. `demo.py` atualiza a seção de exemplos deste README usando uma cópia temporária do catálogo.
 
 ## Organização
 
